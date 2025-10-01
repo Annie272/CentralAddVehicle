@@ -4,21 +4,11 @@
     <meta charset="UTF-8" />
     <title>Safeco Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css" />
     <style>
-      .hidden {
-        display: none;
-      }
-      .star {
-        color: #ef4444;
-        margin-left: 2px;
-      }
-      .modal-bg {
-        background: rgba(0, 0, 0, 0.4);
-      }
+      .hidden { display: none; }
+      .star { color: #ef4444; margin-left: 2px; }
+      .modal-bg { background: rgba(0,0,0,0.4);}
     </style>
   </head>
   <body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
@@ -35,10 +25,7 @@
       </h2>
 
       <!-- Policy Changes Section -->
-      <section
-        class="bg-gray-50 border rounded-xl p-6 shadow-inner"
-        aria-label="Policy Changes Section"
-      >
+      <section class="bg-gray-50 border rounded-xl p-6 shadow-inner" aria-label="Policy Changes Section">
         <h3 class="text-xl font-semibold mb-4 text-gray-700">Policy Changes</h3>
 
         <div class="mb-4">
@@ -60,50 +47,18 @@
           </legend>
           <div class="flex space-x-6">
             <label class="inline-flex items-center">
-              <input
-                type="radio"
-                name="00NU7000006IOzh"
-                value="Y"
-                class="mr-2"
-              />Yes
+              <input type="radio" name="00NU7000006IOzh" value="Y" class="mr-2" />Yes
             </label>
             <label class="inline-flex items-center">
-              <input
-                type="radio"
-                name="00NU7000006IOzh"
-                value="N"
-                class="mr-2"
-              />No
+              <input type="radio" name="00NU7000006IOzh" value="N" class="mr-2" />No
             </label>
           </div>
         </fieldset>
 
-        <div class="mb-4">
-          <label
-            for="00NU7000005zuNN"
-            class="block text-sm font-medium text-gray-700"
-          >
-            Policy Action<span class="star">*</span>
-          </label>
-          <select
-            id="00NU7000005zuNN"
-            name="00NU7000005zuNN"
-            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-          >
-            <option value="">--None--</option>
-            <option value="Replace Vehicle">Replace Vehicle</option>
-            <option value="Add Vehicle">Add Vehicle</option>
-            <option value="Remove Vehicle">Remove Vehicle</option>
-            <option value="Add Driver">Add Driver</option>
-            <option value="Remove Driver">Remove Driver</option>
-          </select>
-        </div>
+        <input type="hidden" name="00NU7000005zuNN" id="00NU7000005zuNN" value="Add Vehicle" />
 
         <div class="mb-4">
-          <label
-            for="00NU7000005zuX3"
-            class="block text-sm font-medium text-gray-700"
-          >
+          <label for="00NU7000005zuX3" class="block text-sm font-medium text-gray-700">
             Policy Number<span class="star">*</span>
           </label>
           <input
@@ -116,10 +71,7 @@
         </div>
 
         <div class="mb-4">
-          <label
-            for="00NU7000005zuLl"
-            class="block text-sm font-medium text-gray-700"
-          >
+          <label for="00NU7000005zuLl" class="block text-sm font-medium text-gray-700">
             Effective Date (MM/DD/YYYY)<span class="star">*</span>
           </label>
           <input
@@ -135,87 +87,33 @@
       </section>
 
       <!-- Vehicle Details Section -->
-      <section
-        class="bg-gray-50 border rounded-xl p-6 shadow-inner"
-        aria-label="Vehicle Details Section"
-      >
+      <section class="bg-gray-50 border rounded-xl p-6 shadow-inner" aria-label="Vehicle Details Section">
         <h3 class="text-xl font-semibold mb-4 text-gray-700">
           Vehicle Details
         </h3>
-
-        <!-- VIN Old Vehicle - as radio -->
-        <fieldset class="mb-4">
-          <legend class="block text-sm font-medium text-gray-700 mb-1">
-            Do you know the VIN of the Old Vehicle?<span class="star">*</span>
-          </legend>
-          <div class="flex space-x-6">
-            <label class="inline-flex items-center">
-              <input
-                type="radio"
-                name="00NU7000006DHIv"
-                value="Y"
-                class="mr-2"
-              />Yes
-            </label>
-            <label class="inline-flex items-center">
-              <input
-                type="radio"
-                name="00NU7000006DHIv"
-                value="N"
-                class="mr-2"
-              />No
-            </label>
-          </div>
-        </fieldset>
-
+        <!-- Type of Vehicle -->
         <div class="mb-4">
-          <label
-            for="00NU700000616Sv"
-            class="block text-sm font-medium text-gray-700"
-          >
-            VIN Number of Old Vehicle<span class="star">*</span>
+          <label for="00NU700000762BB" class="block text-sm font-medium text-gray-700">
+            Type of Vehicle<span class="star">*</span>
           </label>
-          <input
-            id="00NU700000616Sv"
-            name="00NU700000616Sv"
-            maxlength="255"
-            size="20"
-            type="text"
-            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-            autocomplete="off"
-          />
+          <select id="00NU700000762BB" name="00NU700000762BB" title="Type of Vehicle"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm">
+            <option value="">--None--</option>
+            <option value="Private Passenger (all symbol rated vehicles)">Private Passenger (all symbol rated vehicles)</option>
+            <option value="Pickup (non symbol rated)">Pickup (non symbol rated)</option>
+            <option value="Van (non symbol rated)">Van (non symbol rated)</option>
+            <option value="Limited Use Auto">Limited Use Auto</option>
+            <option value="Motorhome">Motorhome</option>
+            <option value="Recreational Trailer">Recreational Trailer</option>
+            <option value="Utility/All Other Trailers">Utility/All Other Trailers</option>
+            <option value="All Terrain Vehicle">All Terrain Vehicle</option>
+            <option value="Golf Cart">Golf Cart</option>
+            <option value="Snowmobile">Snowmobile</option>
+          </select>
         </div>
-
-        <!-- VIN New Vehicle - as radio -->
-        <fieldset class="mb-4">
-          <legend class="block text-sm font-medium text-gray-700 mb-1">
-            Do you know the VIN of the New Vehicle?<span class="star">*</span>
-          </legend>
-          <div class="flex space-x-6">
-            <label class="inline-flex items-center">
-              <input
-                type="radio"
-                name="00NU7000006NiT7"
-                value="Y"
-                class="mr-2"
-              />Yes
-            </label>
-            <label class="inline-flex items-center">
-              <input
-                type="radio"
-                name="00NU7000006NiT7"
-                value="N"
-                class="mr-2"
-              />No
-            </label>
-          </div>
-        </fieldset>
-
+        <!-- VIN Number of New Vehicle -->
         <div class="mb-4">
-          <label
-            for="00NU7000006Knh3"
-            class="block text-sm font-medium text-gray-700"
-          >
+          <label for="00NU7000006Knh3" class="block text-sm font-medium text-gray-700">
             VIN Number of New Vehicle<span class="star">*</span>
           </label>
           <input
@@ -228,60 +126,41 @@
             autocomplete="off"
           />
         </div>
-
+        <!-- Purchase Date -->
         <div class="mb-4">
-          <label
-            for="00NU7000006N0iD"
-            class="block text-sm font-medium text-gray-700"
-          >
-            Is the vehicle used to commute to work/ school?<span class="star"
-              >*</span
-            >
+          <label for="00NU7000007Aop9" class="block text-sm font-medium text-gray-700">
+            Purchase Date<span class="star">*</span>
           </label>
-          <select
-            id="00NU7000006N0iD"
-            name="00NU7000006N0iD"
-            title="Vehicle Use"
-            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-          >
+          <span class="dateInput dateOnlyInput">
+            <input
+              id="00NU7000007Aop9"
+              name="00NU7000007Aop9"
+              size="12"
+              type="text"
+              placeholder="MM/DD/YYYY"
+              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              autocomplete="off"
+            />
+          </span>
+        </div>
+        <!-- Vehicle Use -->
+        <div class="mb-4">
+          <label for="00NU7000006N0iD" class="block text-sm font-medium text-gray-700">
+            Vehicle Use<span class="star">*</span>
+          </label>
+          <select id="00NU7000006N0iD" name="00NU7000006N0iD" title="Vehicle Use"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm">
             <option value="">--None--</option>
-            <option value="Pleasure or Work/School &lt; 4 miles">
-              Pleasure or Work/School &lt; 4 miles
-            </option>
-            <option value="Work/School 4 or more miles">
-              Work/School 4 or more miles
-            </option>
-            <option value="Business Use">Business Use</option>
-            <option value="Show Use">Show Use</option>
-            <option value="Farm Use">Farm Use</option>
+            <option value="Pleasure (0-2 Miles One Way)">Pleasure (0-2 Miles One Way)</option>
+            <option value="Work Less than 15 Miles One Way">Work Less than 15 Miles One Way</option>
+            <option value="Work 15 Miles or More One Way">Work 15 Miles or More One Way</option>
+            <option value="Business">Business</option>
+            <option value="Farm">Farm</option>
           </select>
         </div>
-
+        <!-- Annual Miles -->
         <div class="mb-4">
-          <label
-            for="00NU7000006N0wj"
-            class="block text-sm font-medium text-gray-700"
-          >
-            Ownership<span class="star">*</span>
-          </label>
-          <select
-            id="00NU7000006N0wj"
-            name="00NU7000006N0wj"
-            title="Ownership"
-            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-          >
-            <option value="">--None--</option>
-            <option value="Owned">Owned</option>
-            <option value="Financed">Financed</option>
-            <option value="Leased">Leased</option>
-          </select>
-        </div>
-
-        <div class="mb-4">
-          <label
-            for="00NU7000006N0zx"
-            class="block text-sm font-medium text-gray-700"
-          >
+          <label for="00NU7000006N0zx" class="block text-sm font-medium text-gray-700">
             Annual Miles<span class="star">*</span>
           </label>
           <input
@@ -294,78 +173,19 @@
             autocomplete="off"
           />
         </div>
-
-        <fieldset class="mb-4">
-          <legend class="block text-sm font-medium text-gray-700 mb-1">
-            Vehicle purchased new?<span class="star">*</span>
-          </legend>
-          <div class="flex space-x-6">
-            <label class="inline-flex items-center">
-              <input
-                type="radio"
-                name="00NU7000006N1MX"
-                value="Y"
-                class="mr-2"
-              />Yes
-            </label>
-            <label class="inline-flex items-center">
-              <input
-                type="radio"
-                name="00NU7000006N1MX"
-                value="N"
-                class="mr-2"
-              />No
-            </label>
-          </div>
-        </fieldset>
-
-        <div class="mb-4">
-          <label
-            for="00NU7000006N1Pl"
-            class="block text-sm font-medium text-gray-700"
-          >
-            Years Vehicle Owned<span class="star">*</span>
-          </label>
-          <input
-            id="00NU7000006N1Pl"
-            name="00NU7000006N1Pl"
-            maxlength="255"
-            size="20"
-            type="text"
-            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-            autocomplete="off"
-          />
-        </div>
       </section>
 
       <!-- Hidden Salesforce fields -->
       <input type="hidden" name="oid" value="00DU7000006EuID" />
-      <input
-        type="hidden"
-        name="recordType"
-        id="recordType"
-        value="012U7000003Ie25IAC"
-      />
-      <input
-        type="hidden"
-        name="retURL"
-        value="https://bennettandporter.com/"
-      />
-      <input
-        type="hidden"
-        name="first_name"
-        value="Safeco-New-7.0 Check Trial"
-      />
-      <input type="hidden" name="last_name" value="Test" />
+      <input type="hidden" name="recordType" id="recordType" value="012U7000003Ie25IAC" />
+      <input type="hidden" name="retURL" value="https://bennettandporter.com/" />
+      <input type="hidden" name="first_name" value="Central Add Vehicle Trial" />
+      <input type="hidden" name="last_name" value="Test Demo" />
       <input type="hidden" name="status" value="New" />
       <input type="hidden" name="phone" value="28436836129" />
       <input type="hidden" name="lead_source" value="Web Form" />
-      <input type="hidden" name="company" value="Caelius Test Safeco New 7.0" />
-      <input
-        type="hidden"
-        name="Debug_Notes__c"
-        value="Safeco Test: 2025-06-27 07:21AM"
-      />
+      <input type="hidden" name="company" value="Caelius Test Central Add Vehicle" />
+      <input type="hidden" name="Debug_Notes__c" value="Safeco Test: 2025-06-27 07:21AM" />
 
       <div class="flex justify-end mt-6">
         <button
@@ -386,9 +206,7 @@
       aria-modal="true"
       aria-labelledby="dialogTitle"
     >
-      <div
-        class="bg-white rounded-lg p-6 max-w-md w-full shadow-lg text-gray-800"
-      >
+      <div class="bg-white rounded-lg p-6 max-w-md w-full shadow-lg text-gray-800">
         <h3 id="dialogTitle" class="text-lg font-semibold mb-4"></h3>
         <ul id="missingFieldsList" class="mb-4 text-red-600 text-sm"></ul>
         <div class="flex justify-end space-x-3" id="dialogButtons">
@@ -427,43 +245,32 @@
           },
         });
 
-        const requiredFields = [
-          // Policy Changes
-          { id: "email", label: "Email", type: "email" },
-          {
-            radioGroupName: "00NU7000006IOzh",
-            label: "Is this a quote or a change request?",
+        // Pikaday for Purchase Date
+        new Pikaday({
+          field: document.getElementById("00NU7000007Aop9"),
+          format: "MM/DD/YYYY",
+          toString(date) {
+            const day = String(date.getDate()).padStart(2, "0");
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const year = date.getFullYear();
+            return `${month}/${day}/${year}`;
           },
-          { id: "00NU7000005zuNN", label: "Policy Action" },
-          { id: "00NU7000005zuX3", label: "Policy Number" },
-          {
-            id: "00NU7000005zuLl",
-            label: "Effective Date (MM/DD/YYYY)",
-            type: "date",
+          parse(dateString) {
+            const [month, day, year] = dateString.split("/");
+            return new Date(year, month - 1, day);
           },
+        });
 
-          // Vehicle Details
-          {
-            radioGroupName: "00NU7000006DHIv",
-            label: "Do you know the VIN of the Old Vehicle?",
-          },
-          { id: "00NU700000616Sv", label: "VIN Number of Old Vehicle" },
-          {
-            radioGroupName: "00NU7000006NiT7",
-            label: "Do you know the VIN of the New Vehicle?",
-          },
+        const requiredFields = [
+          { id: "email", label: "Email", type: "email" },
+          { radioGroupName: "00NU7000006IOzh", label: "Is this a quote or a change request?" },
+          { id: "00NU7000005zuX3", label: "Policy Number" },
+          { id: "00NU7000005zuLl", label: "Effective Date (MM/DD/YYYY)", type: "date" },
+          { id: "00NU700000762BB", label: "Type of Vehicle" },
           { id: "00NU7000006Knh3", label: "VIN Number of New Vehicle" },
-          {
-            id: "00NU7000006N0iD",
-            label: "Is the vehicle used to commute to work/ school?",
-          },
-          { id: "00NU7000006N0wj", label: "Ownership" },
+          { id: "00NU7000007Aop9", label: "Purchase Date", type: "date" },
+          { id: "00NU7000006N0iD", label: "Vehicle Use" },
           { id: "00NU7000006N0zx", label: "Annual Miles" },
-          {
-            radioGroupName: "00NU7000006N1MX",
-            label: "Vehicle purchased new?",
-          },
-          { id: "00NU7000006N1Pl", label: "Years Vehicle Owned" },
         ];
 
         const form = document.getElementById("mainForm");
@@ -474,76 +281,6 @@
         const proceedBtn = document.getElementById("proceedBtn");
         const editBtn = document.getElementById("editBtn");
 
-        function validateFields() {
-          const missing = [];
-
-          requiredFields.forEach((field) => {
-            if (field.radioGroupName) {
-              const radios = document.querySelectorAll(
-                `input[name="${field.radioGroupName}"]`
-              );
-              const checked = [...radios].some((r) => r.checked);
-              if (!checked) missing.push(field.label);
-            } else if (field.type === "email") {
-              const el = document.getElementById(field.id);
-              if (!el.value.trim() || !el.checkValidity())
-                missing.push(field.label);
-            } else if (field.type === "date") {
-              const val = document.getElementById(field.id).value.trim();
-              const dateRegex =
-                /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/20[2-9]\d$/;
-              if (!val || !dateRegex.test(val)) missing.push(field.label);
-            } else {
-              const el = document.getElementById(field.id);
-              if (!el || !el.value.trim()) missing.push(field.label);
-            }
-          });
-
-          const vehPurchasedNewRadios = document.querySelectorAll(
-            'input[name="00NU7000006N1MX"]'
-          );
-          let purchasedNewVal = null;
-          for (const r of vehPurchasedNewRadios) {
-            if (r.checked) {
-              purchasedNewVal = r.value;
-              break;
-            }
-          }
-          const yearsOwnedInput = document.getElementById("00NU7000006N1Pl");
-          if (purchasedNewVal === "Y") {
-            yearsOwnedInput.value = "0";
-            yearsOwnedInput.readOnly = true;
-            const idx = missing.indexOf("Years Vehicle Owned");
-            if (idx !== -1) missing.splice(idx, 1);
-          } else {
-            yearsOwnedInput.readOnly = false;
-            if (!yearsOwnedInput.value.trim()) {
-              if (!missing.includes("Years Vehicle Owned"))
-                missing.push("Years Vehicle Owned");
-            }
-          }
-
-          return missing;
-        }
-
-        // Vehicle purchased new? logic
-        const vehPurchasedRadios = document.querySelectorAll(
-          'input[name="00NU7000006N1MX"]'
-        );
-        const yearsOwnedInput = document.getElementById("00NU7000006N1Pl");
-        vehPurchasedRadios.forEach((radio) => {
-          radio.addEventListener("change", () => {
-            if (radio.value === "Y" && radio.checked) {
-              yearsOwnedInput.value = "0";
-              yearsOwnedInput.readOnly = true;
-            } else if (radio.value === "N" && radio.checked) {
-              yearsOwnedInput.value = "";
-              yearsOwnedInput.readOnly = false;
-            }
-          });
-        });
-
-        // Prevent native submit
         form.addEventListener("submit", (e) => e.preventDefault());
 
         reviewBtn.addEventListener("click", () => {
@@ -582,6 +319,28 @@
             dialog.classList.add("hidden");
           }
         });
+
+        function validateFields() {
+          const missing = [];
+          requiredFields.forEach((field) => {
+            if (field.radioGroupName) {
+              const radios = document.querySelectorAll(`input[name="${field.radioGroupName}"]`);
+              const checked = [...radios].some((r) => r.checked);
+              if (!checked) missing.push(field.label);
+            } else if (field.type === "email") {
+              const el = document.getElementById(field.id);
+              if (!el.value.trim() || !el.checkValidity()) missing.push(field.label);
+            } else if (field.type === "date") {
+              const val = document.getElementById(field.id).value.trim();
+              const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/20[2-9]\d$/;
+              if (!val || !dateRegex.test(val)) missing.push(field.label);
+            } else {
+              const el = document.getElementById(field.id);
+              if (!el || !el.value.trim()) missing.push(field.label);
+            }
+          });
+          return missing;
+        }
       });
     </script>
   </body>
