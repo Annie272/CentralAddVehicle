@@ -141,19 +141,21 @@
         </div>
         <!-- Annual Miles -->
         <div class="mb-4">
-          <label for="00NU7000006N0zx" class="block text-sm font-medium text-gray-700">
-            Annual Miles<span class="star">*</span>
-          </label>
-          <input
-            id="00NU7000006N0zx"
-            name="00NU7000006N0zx"
-            maxlength="255"
-            size="20"
-            type="text"
-            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-            autocomplete="off"
-          />
-        </div>
+  <label for="00NU7000007CAlx" class="block text-sm font-medium text-gray-700">
+    Annual Miles<span class="star">*</span>
+  </label>
+  <input
+    id="00NU7000007CAlx"
+    name="00NU7000007CAlx"
+    size="20"
+    type="number"
+    class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+    min="0"
+    step="1"
+    autocomplete="off"
+  />
+</div>
+
       </section>
       
      <!-- Coverages Section -->
@@ -231,6 +233,24 @@
       <option value="50 Per Day / 1500 Maximum">50 Per Day / 1500 Maximum</option>
     </select>
   </div>
+  
+  <div class="mb-4">
+  <label for="00NU7000007CApB" class="block text-sm font-medium text-gray-700">
+    Excess Custom Equipment Coverage
+  </label>
+  <input
+    id="00NU7000007CApB"
+    name="00NU7000007CApB"
+    size="20"
+    type="number"
+    class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+    min="0"
+    step="1"
+    autocomplete="off"
+  />
+</div>
+
+
   <div class="mb-4">
     <label for="00NU7000007ALrx" class="block text-sm font-medium text-gray-700">
       Towing and Labor<span class="star">*</span>
@@ -316,6 +336,7 @@
       </label>
     </div>
   </div>
+
   <div class="mb-4" id="secondAddressFieldDiv">
     <label class="block text-sm font-medium text-gray-700" id="secondAddressFieldLabel">
       Is there a Loan for this vehicle?<span class="star">*</span>
@@ -330,6 +351,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- Loss Payee & Additional Insured (Lessor) Section -->
 <section
@@ -355,6 +377,19 @@
     />
   </div>
   <div class="mb-4">
+  <label for="00NU7000007CBN3" class="block text-sm font-medium text-gray-700">
+    Name Continued<span class="star">*</span>
+  </label>
+  <input
+    id="00NU7000007CBN3"
+    name="00NU7000007CBN3"
+    maxlength="30"
+    size="20"
+    type="text"
+    class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+  />
+</div>
+<div class="mb-4">
     <label for="00NU7000007AyLR" class="block text-sm font-medium text-gray-700">
       Mailing Address<span class="star">*</span>
     </label>
@@ -384,64 +419,64 @@
     <label for="00NU7000005zvWL" class="block text-sm font-medium text-gray-700">
       State<span class="star">*</span>
     </label>
-    <select
-      id="00NU7000005zvWL"
-      name="00NU7000005zvWL"
-      title="State"
-      class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-    >
-      <option value=""></option>
-      <option value="AL">AL</option>
-      <option value="AK">AK</option>
-      <option value="AZ">AZ</option>
-      <option value="AR">AR</option>
-      <option value="CA">CA</option>
-      <option value="CO">CO</option>
-      <option value="CT">CT</option>
-      <option value="DE">DE</option>
-      <option value="FL">FL</option>
-      <option value="GA">GA</option>
-      <option value="HI">HI</option>
-      <option value="ID">ID</option>
-      <option value="IL">IL</option>
-      <option value="IN">IN</option>
-      <option value="IA">IA</option>
-      <option value="KS">KS</option>
-      <option value="KY">KY</option>
-      <option value="LA">LA</option>
-      <option value="ME">ME</option>
-      <option value="MD">MD</option>
-      <option value="MA">MA</option>
-      <option value="MI">MI</option>
-      <option value="MN">MN</option>
-      <option value="MS">MS</option>
-      <option value="MO">MO</option>
-      <option value="MT">MT</option>
-      <option value="NE">NE</option>
-      <option value="NV">NV</option>
-      <option value="NH">NH</option>
-      <option value="NJ">NJ</option>
-      <option value="NM">NM</option>
-      <option value="NY">NY</option>
-      <option value="NC">NC</option>
-      <option value="ND">ND</option>
-      <option value="OH">OH</option>
-      <option value="OK">OK</option>
-      <option value="OR">OR</option>
-      <option value="PA">PA</option>
-      <option value="RI">RI</option>
-      <option value="SC">SC</option>
-      <option value="SD">SD</option>
-      <option value="TN">TN</option>
-      <option value="TX">TX</option>
-      <option value="UT">UT</option>
-      <option value="VT">VT</option>
-      <option value="VA">VA</option>
-      <option value="WA">WA</option>
-      <option value="WV">WV</option>
-      <option value="WI">WI</option>
-      <option value="WY">WY</option>
-    </select>
+   <select
+  id="00NU7000005zvWL"
+  name="00NU7000005zvWL"
+  title="State"
+  class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+>
+  <option value="">Select a State</option>
+  <option value="AL">Alabama</option>
+  <option value="AK">Alaska</option>
+  <option value="AZ">Arizona</option>
+  <option value="AR">Arkansas</option>
+  <option value="CA">California</option>
+  <option value="CO">Colorado</option>
+  <option value="CT">Connecticut</option>
+  <option value="DE">Delaware</option>
+  <option value="FL">Florida</option>
+  <option value="GA">Georgia</option>
+  <option value="HI">Hawaii</option>
+  <option value="ID">Idaho</option>
+  <option value="IL">Illinois</option>
+  <option value="IN">Indiana</option>
+  <option value="IA">Iowa</option>
+  <option value="KS">Kansas</option>
+  <option value="KY">Kentucky</option>
+  <option value="LA">Louisiana</option>
+  <option value="ME">Maine</option>
+  <option value="MD">Maryland</option>
+  <option value="MA">Massachusetts</option>
+  <option value="MI">Michigan</option>
+  <option value="MN">Minnesota</option>
+  <option value="MS">Mississippi</option>
+  <option value="MO">Missouri</option>
+  <option value="MT">Montana</option>
+  <option value="NE">Nebraska</option>
+  <option value="NV">Nevada</option>
+  <option value="NH">New Hampshire</option>
+  <option value="NJ">New Jersey</option>
+  <option value="NM">New Mexico</option>
+  <option value="NY">New York</option>
+  <option value="NC">North Carolina</option>
+  <option value="ND">North Dakota</option>
+  <option value="OH">Ohio</option>
+  <option value="OK">Oklahoma</option>
+  <option value="OR">Oregon</option>
+  <option value="PA">Pennsylvania</option>
+  <option value="RI">Rhode Island</option>
+  <option value="SC">South Carolina</option>
+  <option value="SD">South Dakota</option>
+  <option value="TN">Tennessee</option>
+  <option value="TX">Texas</option>
+  <option value="UT">Utah</option>
+  <option value="VT">Vermont</option>
+  <option value="VA">Virginia</option>
+  <option value="WA">Washington</option>
+  <option value="WV">West Virginia</option>
+  <option value="WI">Wisconsin</option>
+  <option value="WY">Wyoming</option>
+</select>
   </div>
   <div class="mb-4">
     <label for="00NU7000005zw7R" class="block text-sm font-medium text-gray-700">
@@ -512,235 +547,210 @@
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Pikaday date pickers (unchanged)
-    if (window.Pikaday) {
-      new Pikaday({
-        field: document.getElementById("00NU7000005zuLl"),
-        format: "MM/DD/YYYY",
-        toString(date) {
-          const d = String(date.getDate()).padStart(2, "0");
-          const m = String(date.getMonth() + 1).padStart(2, "0");
-          const y = date.getFullYear();
-          return `${m}/${d}/${y}`;
-        },
-        parse(dateString) {
-          const [m, d, y] = dateString.split("/");
-          return new Date(y, m - 1, d);
-        },
-      });
-      new Pikaday({
-        field: document.getElementById("00NU7000007Aop9"),
-        format: "MM/DD/YYYY",
-        toString(date) {
-          const d = String(date.getDate()).padStart(2, "0");
-          const m = String(date.getMonth() + 1).padStart(2, "0");
-          const y = date.getFullYear();
-          return `${m}/${d}/${y}`;
-        },
-        parse(dateString) {
-          const [m, d, y] = dateString.split("/");
-          return new Date(y, m - 1, d);
-        },
-      });
-    }
-
-    // ---- Address Section Dynamic Logic (Rewritten for toggling correctness) ---- //
-const leaseRadios = document.querySelectorAll('input[name="00NU7000007AxFi"]');
-const loanFieldLabel = document.getElementById("secondAddressFieldLabel");
-const loanFieldOptions = document.getElementById("secondAddressFieldOptions");
-const lossPayeeSection = document.getElementById("lossPayeeSection");
-
-const config = {
-  loanDefaultText: 'Is there a Loan for this vehicle?<span class="star">*</span>',
-  lossPayeeText: 'Do the Loss Payee and the Lessor have the same name and address?<span class="star">*</span>',
-  radios: {
-    loan: [
-      { name: '00NU7000007Axvd', value: 'Y', label: 'Yes' },
-      { name: '00NU7000007Axvd', value: 'N', label: 'No' }
-    ],
-    lossPayee: [
-      { name: 'lossPayeeSame', value: 'Y', label: 'Yes' },
-      { name: 'lossPayeeSame', value: 'N', label: 'No' }
-    ]
-  }
-};
-
-// Render options for the "second" address question, based on case
-function renderSecondQuestion(type) {
-  // Save checked state if possible
-  let checkedVal = loanFieldOptions.querySelector('input:checked')?.value;
-  let checkedName = loanFieldOptions.querySelector('input:checked')?.name;
-  if (type === 'lossPayeeSame') {
-    loanFieldLabel.innerHTML = config.lossPayeeText;
-    loanFieldOptions.innerHTML = config.radios.lossPayee.map(r =>
-      `<label class="inline-flex items-center">
-        <input type="radio" name="${r.name}" value="${r.value}" class="mr-2" />${r.label}
-      </label>`
-    ).join('');
-    // Reselect if previously in use
-    if (checkedName === 'lossPayeeSame' && checkedVal) {
-      loanFieldOptions.querySelector(`input[value="${checkedVal}"]`).checked = true;
-    }
-  } else {
-    loanFieldLabel.innerHTML = config.loanDefaultText;
-    loanFieldOptions.innerHTML = config.radios.loan.map(r =>
-      `<label class="inline-flex items-center">
-        <input type="radio" name="${r.name}" value="${r.value}" class="mr-2" />${r.label}
-      </label>`
-    ).join('');
-    if (checkedName === '00NU7000007Axvd' && checkedVal) {
-      loanFieldOptions.querySelector(`input[value="${checkedVal}"]`).checked = true;
-    }
-  }
-}
-
-function updateAddressFields() {
-  const leaseVal = document.querySelector('input[name="00NU7000007AxFi"]:checked')?.value;
-
-  if (leaseVal === "Y") {
-    renderSecondQuestion('lossPayeeSame');
-    const lpsRadios = loanFieldOptions.querySelectorAll('input[name="lossPayeeSame"]');
-    let showLoss = "";
-    lpsRadios.forEach(r => {
-      r.addEventListener("change", () => showLossPayeeSection(r.value === "Y"));
-      if (r.checked) showLoss = r.value;
+  // Pikaday date pickers setup
+  if (window.Pikaday) {
+    new Pikaday({
+      field: document.getElementById("00NU7000005zuLl"),
+      format: "MM/DD/YYYY",
+      toString(date) {
+        const d = String(date.getDate()).padStart(2, "0");
+        const m = String(date.getMonth() + 1).padStart(2, "0");
+        const y = date.getFullYear();
+        return `${m}/${d}/${y}`;
+      },
+      parse(dateString) {
+        const [m, d, y] = dateString.split("/");
+        return new Date(y, m - 1, d);
+      },
     });
-    showLossPayeeSection(showLoss === "Y");
-  } else {
-    renderSecondQuestion('loan');
-    const loanRadios = loanFieldOptions.querySelectorAll('input[name="00NU7000007Axvd"]');
-    let showLoss = "";
-    loanRadios.forEach(r => {
-      r.addEventListener("change", () => showLossPayeeSection(r.value === "Y"));
-      if (r.checked) showLoss = r.value;
+    new Pikaday({
+      field: document.getElementById("00NU7000007Aop9"),
+      format: "MM/DD/YYYY",
+      toString(date) {
+        const d = String(date.getDate()).padStart(2, "0");
+        const m = String(date.getMonth() + 1).padStart(2, "0");
+        const y = date.getFullYear();
+        return `${m}/${d}/${y}`;
+      },
+      parse(dateString) {
+        const [m, d, y] = dateString.split("/");
+        return new Date(y, m - 1, d);
+      },
     });
-    showLossPayeeSection(showLoss === "Y");
   }
-}
 
-function showLossPayeeSection(show) {
-  lossPayeeSection.style.display = show ? "block" : "none";
-}
+  const leaseRadios = document.querySelectorAll('input[name="00NU7000007AxFi"]');
+  const loanFieldDiv = document.getElementById("secondAddressFieldDiv");
+  const loanFieldOptions = document.getElementById("secondAddressFieldOptions");
+  const lossPayeeSection = document.getElementById("lossPayeeSection");
+  const lossPayeeHeader = lossPayeeSection.querySelector("h3");
 
-// Listeners for main toggle and options
-leaseRadios.forEach(radio =>
-  radio.addEventListener("change", () => {
-    // Clear radios in second question on lease change
-    updateAddressFields();
-  })
-);
-// Delegate dynamic radio group events
-loanFieldOptions.addEventListener("change", updateAddressFields);
-
-// Initial setup
-updateAddressFields();
-
-
-    // -------- Validation & Dialog Logic (Unchanged) -------- //
-    const requiredFields = [
-      { id: "email", label: "Email", type: "email" },
-      { radioGroupName: "00NU7000006IOzh", label: "Is this a quote or a change request?" },
-      { id: "00NU7000005zuX3", label: "Policy Number" },
-      { id: "00NU7000005zuLl", label: "Effective Date (MM/DD/YYYY)", type: "date" },
-      { id: "00NU7000006Knh3", label: "VIN Number of New Vehicle" },
-      { id: "00NU7000007Aop9", label: "Purchase Date", type: "date" },
-      { id: "00NU7000006N0iD", label: "Vehicle Use" },
-      { id: "00NU7000006N0zx", label: "Annual Miles" },
-      { id: "00NU7000007ALC1", label: "Other than Collision" },
-      { id: "00NU700000618cn", label: "Collision" },
-      { id: "00NU7000007AORd", label: "Extended Transportation" },
-      { id: "00NU7000007ALrx", label: "Towing and Labor" },
-      { id: "00NU7000007AP9B", label: "Excess Electronic Equipment" },
-      { id: "00NU7000007APab", label: "Lease/Loan Guard" },
-      { id: "00NU7000007APfR", label: "Trip Interruption Coverage" },
-      { radioGroupName: "00NU7000007AxFi", label: "Is this vehicle leased?" },
-      { radioGroupName: "00NU7000007Axvd", label: "Is there a Loan for this vehicle?" },
-      { radioGroupName: "lossPayeeSame", label: "Do the Loss Payee and the Lessor have the same name and address?" },
-      { id: "00NU7000006YQuN", label: "Loss Payee Name" },
-      { id: "00NU7000007AyLR", label: "Loss Payee Mailing Address" },
-      { id: "00NU7000005zvUj", label: "Loss Payee City" },
-      { id: "00NU7000005zvWL", label: "Loss Payee State" },
-      { id: "00NU7000005zw7R", label: "Loss Payee Zip Code" }
-    ];
-
-    function validateFields() {
-      const missing = [];
-
-      requiredFields.forEach((field) => {
-        if (field.radioGroupName) {
-          let radios;
-          if (field.radioGroupName === 'lossPayeeSame') {
-            radios = loanFieldOptions.querySelectorAll('input[name="lossPayeeSame"]');
-          } else {
-            radios = document.querySelectorAll(`input[name="${field.radioGroupName}"]`);
-          }
-          if (!radios.length) return;
-          const checked = [...radios].some((r) => r.checked);
-          if (!checked) missing.push(field.label);
-          return;
-        }
-        const el = document.getElementById(field.id);
-        const lossFields = [
-          "00NU7000006YQuN","00NU7000007AyLR","00NU7000005zvUj",
-          "00NU7000005zvWL","00NU7000005zw7R"
-        ];
-        if (lossFields.includes(field.id) && lossPayeeSection.style.display === "none") return;
-        if (field.type === "email") {
-          if (!el.value.trim() || !el.checkValidity()) missing.push(field.label);
-        } else if (field.type === "date") {
-          const val = el.value.trim();
-          const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/20[2-9]\d$/;
-          if (!val || !dateRegex.test(val)) missing.push(field.label);
+  function showLossPayeeSection(show, headerText) {
+    if (show) {
+      lossPayeeHeader.textContent = headerText;
+      lossPayeeSection.style.display = "block";
+    } else {
+      lossPayeeSection.style.display = "none";
+      lossPayeeHeader.textContent = "";
+      lossPayeeSection.querySelectorAll("input, select").forEach((el) => {
+        if (el.type === "radio" || el.type === "checkbox") {
+          el.checked = false;
         } else {
-          if (!el || !el.value.trim()) missing.push(field.label);
+          el.value = "";
         }
       });
-      return missing;
     }
+  }
 
-    const form = document.getElementById("mainForm");
-    const reviewBtn = document.getElementById("reviewBtn");
-    const dialog = document.getElementById("dialog");
-    const dialogTitle = document.getElementById("dialogTitle");
-    const missingFieldsList = document.getElementById("missingFieldsList");
-    const proceedBtn = document.getElementById("proceedBtn");
-    const editBtn = document.getElementById("editBtn");
+  function updateUI() {
+    const leaseVal = document.querySelector('input[name="00NU7000007AxFi"]:checked')?.value;
+    const loanVal = document.querySelector('input[name="00NU7000007Axvd"]:checked')?.value;
 
-    form.addEventListener("submit", (e) => e.preventDefault());
-
-    reviewBtn.addEventListener("click", () => {
-      const missing = validateFields();
-      if (missing.length) {
-        dialogTitle.textContent = "Below Mandatory Fields are missing and the Team will contact you shortly.";
-        missingFieldsList.innerHTML = missing.map((f) => `<li>${f}</li>`).join("");
+    if (leaseVal === "Y") {
+      // Hide entire loan question div for Case 1
+      loanFieldDiv.style.display = "none";
+      showLossPayeeSection(true, "Loss Payee & Additional Insured (Lessor)");
+    } else if (leaseVal === "N") {
+      loanFieldDiv.style.display = "block";
+      loanFieldOptions.style.display = "flex"; // ensure radios visible
+      if (loanVal === "Y") {
+        showLossPayeeSection(true, "Loan Information");
       } else {
-        dialogTitle.textContent = "All mandatory fields are completed. Ready to submit your request?";
-        missingFieldsList.innerHTML = "";
+        showLossPayeeSection(false, "");
       }
-      dialog.classList.remove("hidden");
-    });
+    } else {
+      loanFieldDiv.style.display = "block";
+      loanFieldOptions.style.display = "flex";
+      showLossPayeeSection(false, "");
+    }
+  }
 
-    editBtn.addEventListener("click", () => {
-      dialog.classList.add("hidden");
-    });
-
-    proceedBtn.addEventListener("click", () => {
-      dialog.classList.add("hidden");
-      form.submit();
-    });
-
-    window.addEventListener("click", (e) => {
-      if (e.target === dialog) {
-        dialog.classList.add("hidden");
-      }
-    });
-
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !dialog.classList.contains("hidden")) {
-        dialog.classList.add("hidden");
-      }
+  leaseRadios.forEach((radio) => {
+    radio.addEventListener("change", () => {
+      // Clear loan radios on lease change
+      document.querySelectorAll('input[name="00NU7000007Axvd"]').forEach((el) => (el.checked = false));
+      updateUI();
     });
   });
+
+  loanFieldDiv.querySelectorAll('input[name="00NU7000007Axvd"]').forEach((radio) => {
+    radio.addEventListener("change", updateUI);
+  });
+
+  updateUI();
+
+  // Updated validation to skip loan question if hidden
+  const requiredFields = [
+    { id: "email", label: "Email", type: "email" },
+    { radioGroupName: "00NU7000006IOzh", label: "Is this a quote or a change request?" },
+    { id: "00NU7000005zuX3", label: "Policy Number" },
+    { id: "00NU7000005zuLl", label: "Effective Date (MM/DD/YYYY)", type: "date" },
+    { id: "00NU7000006Knh3", label: "VIN Number of New Vehicle" },
+    { id: "00NU7000007Aop9", label: "Purchase Date", type: "date" },
+    { id: "00NU7000006N0iD", label: "Vehicle Use" },
+    { id: "00NU7000007CAlx", label: "Annual Miles" },
+    { id: "00NU7000007ALC1", label: "Other than Collision" },
+    { id: "00NU700000618cn", label: "Collision" },
+    { id: "00NU7000007AORd", label: "Extended Transportation" },
+    { id: "00NU7000007CApB", label: "Excess Custom Equipment Coverage" },
+    { id: "00NU7000007ALrx", label: "Towing and Labor" },
+    { id: "00NU7000007AP9B", label: "Excess Electronic Equipment" },
+    { id: "00NU7000007APab", label: "Lease/Loan Guard" },
+    { id: "00NU7000007APfR", label: "Trip Interruption Coverage" },
+    { radioGroupName: "00NU7000007AxFi", label: "Is this vehicle leased?" },
+    { radioGroupName: "00NU7000007Axvd", label: "Is there a Loan for this vehicle?" },
+    { id: "00NU7000006YQuN", label: "Loss Payee Name" },
+    { id: "00NU7000007CBN3", label: "Name Continued" },
+    { id: "00NU7000007AyLR", label: "Loss Payee Mailing Address" },
+    { id: "00NU7000005zvUj", label: "Loss Payee City" },
+    { id: "00NU7000005zvWL", label: "Loss Payee State" },
+    { id: "00NU7000005zw7R", label: "Loss Payee Zip Code" }
+  ];
+
+  function validateFields() {
+    const missing = [];
+
+    requiredFields.forEach((field) => {
+      // Skip loan question validation if hidden
+      if (field.radioGroupName === "00NU7000007Axvd" && loanFieldDiv.style.display === "none") {
+        return;
+      }
+
+      if (field.radioGroupName) {
+        let radios;
+        if (field.radioGroupName === 'lossPayeeSame') {
+          radios = loanFieldOptions.querySelectorAll('input[name="lossPayeeSame"]');
+        } else {
+          radios = document.querySelectorAll(`input[name="${field.radioGroupName}"]`);
+        }
+        if (!radios.length) return;
+        const checked = [...radios].some((r) => r.checked);
+        if (!checked) missing.push(field.label);
+        return;
+      }
+      const el = document.getElementById(field.id);
+      const lossFields = [
+        "00NU7000006YQuN","00NU7000007AyLR","00NU7000005zvUj",
+        "00NU7000005zvWL","00NU7000005zw7R","00NU7000007CBN3"
+      ];
+      if (lossFields.includes(field.id) && lossPayeeSection.style.display === "none") return;
+      if (field.type === "email") {
+        if (!el.value.trim() || !el.checkValidity()) missing.push(field.label);
+      } else if (field.type === "date") {
+        const val = el.value.trim();
+        const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/20[2-9]\d$/;
+        if (!val || !dateRegex.test(val)) missing.push(field.label);
+      } else {
+        if (!el || !el.value.trim()) missing.push(field.label);
+      }
+    });
+    return missing;
+  }
+
+  const form = document.getElementById("mainForm");
+  const reviewBtn = document.getElementById("reviewBtn");
+  const dialog = document.getElementById("dialog");
+  const dialogTitle = document.getElementById("dialogTitle");
+  const missingFieldsList = document.getElementById("missingFieldsList");
+  const proceedBtn = document.getElementById("proceedBtn");
+  const editBtn = document.getElementById("editBtn");
+
+  form.addEventListener("submit", (e) => e.preventDefault());
+
+  reviewBtn.addEventListener("click", () => {
+    const missing = validateFields();
+    if (missing.length) {
+      dialogTitle.textContent = "Below Mandatory Fields are missing and the Team will contact you shortly.";
+      missingFieldsList.innerHTML = missing.map((f) => `<li>${f}</li>`).join("");
+    } else {
+      dialogTitle.textContent = "All mandatory fields are completed. Ready to submit your request?";
+      missingFieldsList.innerHTML = "";
+    }
+    dialog.classList.remove("hidden");
+  });
+
+  editBtn.addEventListener("click", () => {
+    dialog.classList.add("hidden");
+  });
+
+  proceedBtn.addEventListener("click", () => {
+    dialog.classList.add("hidden");
+    form.submit();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === dialog) {
+      dialog.classList.add("hidden");
+    }
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !dialog.classList.contains("hidden")) {
+      dialog.classList.add("hidden");
+    }
+  });
+});
+
 </script>
 
   </body>
