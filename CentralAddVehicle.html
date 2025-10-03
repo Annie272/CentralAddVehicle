@@ -511,236 +511,237 @@
 
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-  // Pikaday date pickers (unchanged)
-  if (window.Pikaday) {
-    new Pikaday({
-      field: document.getElementById("00NU7000005zuLl"),
-      format: "MM/DD/YYYY",
-      toString(date) {
-        const d = String(date.getDate()).padStart(2, "0");
-        const m = String(date.getMonth() + 1).padStart(2, "0");
-        const y = date.getFullYear();
-        return `${m}/${d}/${y}`;
-      },
-      parse(dateString) {
-        const [m, d, y] = dateString.split("/");
-        return new Date(y, m - 1, d);
-      },
-    });
-    new Pikaday({
-      field: document.getElementById("00NU7000007Aop9"),
-      format: "MM/DD/YYYY",
-      toString(date) {
-        const d = String(date.getDate()).padStart(2, "0");
-        const m = String(date.getMonth() + 1).padStart(2, "0");
-        const y = date.getFullYear();
-        return `${m}/${d}/${y}`;
-      },
-      parse(dateString) {
-        const [m, d, y] = dateString.split("/");
-        return new Date(y, m - 1, d);
-      },
-    });
-  }
-
-  // -------- Address Section Dynamic Logic (Retractable) -------- //
-  const leaseRadios = document.querySelectorAll('input[name="00NU7000007AxFi"]');
-  const loanFieldDiv = document.getElementById("secondAddressFieldDiv");
-  const loanFieldLabel = document.getElementById("secondAddressFieldLabel");
-  const loanFieldOptions = document.getElementById("secondAddressFieldOptions");
-  const lossPayeeSection = document.getElementById("lossPayeeSection");
-
-  // Modular config for address field appearance for easy update
-  const config = {
-    loanDefaultText: 'Is there a Loan for this vehicle?<span class="star">*</span>',
-    lossPayeeText: 'Do the Loss Payee and the Lessor have the same name and address?<span class="star">*</span>',
-    radios: {
-      loan: [
-        { name: '00NU7000007Axvd', value: 'Y', label: 'Yes' },
-        { name: '00NU7000007Axvd', value: 'N', label: 'No' }
-      ],
-      lossPayee: [
-        { name: 'lossPayeeSame', value: 'Y', label: 'Yes' },
-        { name: 'lossPayeeSame', value: 'N', label: 'No' }
-      ]
-    }
-  };
-
-  let lossPayeeQuestionSwitchedOnce = false;
-
-  function renderSecondQuestion(type) {
-    if (type === 'lossPayeeSame') {
-      loanFieldLabel.innerHTML = config.lossPayeeText;
-      loanFieldOptions.innerHTML = config.radios.lossPayee.map(r =>
-        `<label class="inline-flex items-center">
-          <input type="radio" name="${r.name}" value="${r.value}" class="mr-2" />${r.label}
-        </label>`
-      ).join('');
-    } else {
-      loanFieldLabel.innerHTML = config.loanDefaultText;
-      loanFieldOptions.innerHTML = config.radios.loan.map(r =>
-        `<label class="inline-flex items-center">
-          <input type="radio" name="${r.name}" value="${r.value}" class="mr-2" />${r.label}
-        </label>`
-      ).join('');
-    }
-  }
-
-  // Central logic for both cases (easily adjustable for future rules)
-  function updateAddressFields() {
-    const leaseVal = document.querySelector('input[name="00NU7000007AxFi"]:checked')?.value;
-
-    if (leaseVal === "Y") {
-      // CASE 1: leased "Yes"
-      if (!lossPayeeQuestionSwitchedOnce) {
-        renderSecondQuestion('lossPayeeSame');
-        lossPayeeQuestionSwitchedOnce = true;
-      }
-      const lpsRadios = loanFieldOptions.querySelectorAll('input[name="lossPayeeSame"]');
-      let showLoss = "";
-      lpsRadios.forEach(r => {
-        r.addEventListener("change", () => showLossPayeeSection(r.value === "Y"));
-        if (r.checked) showLoss = r.value;
+  document.addEventListener("DOMContentLoaded", function () {
+    // Pikaday date pickers (unchanged)
+    if (window.Pikaday) {
+      new Pikaday({
+        field: document.getElementById("00NU7000005zuLl"),
+        format: "MM/DD/YYYY",
+        toString(date) {
+          const d = String(date.getDate()).padStart(2, "0");
+          const m = String(date.getMonth() + 1).padStart(2, "0");
+          const y = date.getFullYear();
+          return `${m}/${d}/${y}`;
+        },
+        parse(dateString) {
+          const [m, d, y] = dateString.split("/");
+          return new Date(y, m - 1, d);
+        },
       });
-      showLossPayeeSection(showLoss === "Y");
-    } else {
-      // CASE 2: leased "No"
-      renderSecondQuestion('loan');
-      const loanRadios = loanFieldOptions.querySelectorAll('input[name="00NU7000007Axvd"]');
-
-      loanRadios.forEach(r => {
-        r.addEventListener("change", () => showLossPayeeSection(r.value === "Y"));
+      new Pikaday({
+        field: document.getElementById("00NU7000007Aop9"),
+        format: "MM/DD/YYYY",
+        toString(date) {
+          const d = String(date.getDate()).padStart(2, "0");
+          const m = String(date.getMonth() + 1).padStart(2, "0");
+          const y = date.getFullYear();
+          return `${m}/${d}/${y}`;
+        },
+        parse(dateString) {
+          const [m, d, y] = dateString.split("/");
+          return new Date(y, m - 1, d);
+        },
       });
-      let isLoanYes = Array.from(loanRadios).find(r => r.checked && r.value === "Y");
-      showLossPayeeSection(!!isLoanYes);
+    }
+
+    // ---- Address Section Dynamic Logic (Rewritten for toggling correctness) ---- //
+const leaseRadios = document.querySelectorAll('input[name="00NU7000007AxFi"]');
+const loanFieldLabel = document.getElementById("secondAddressFieldLabel");
+const loanFieldOptions = document.getElementById("secondAddressFieldOptions");
+const lossPayeeSection = document.getElementById("lossPayeeSection");
+
+const config = {
+  loanDefaultText: 'Is there a Loan for this vehicle?<span class="star">*</span>',
+  lossPayeeText: 'Do the Loss Payee and the Lessor have the same name and address?<span class="star">*</span>',
+  radios: {
+    loan: [
+      { name: '00NU7000007Axvd', value: 'Y', label: 'Yes' },
+      { name: '00NU7000007Axvd', value: 'N', label: 'No' }
+    ],
+    lossPayee: [
+      { name: 'lossPayeeSame', value: 'Y', label: 'Yes' },
+      { name: 'lossPayeeSame', value: 'N', label: 'No' }
+    ]
+  }
+};
+
+// Render options for the "second" address question, based on case
+function renderSecondQuestion(type) {
+  // Save checked state if possible
+  let checkedVal = loanFieldOptions.querySelector('input:checked')?.value;
+  let checkedName = loanFieldOptions.querySelector('input:checked')?.name;
+  if (type === 'lossPayeeSame') {
+    loanFieldLabel.innerHTML = config.lossPayeeText;
+    loanFieldOptions.innerHTML = config.radios.lossPayee.map(r =>
+      `<label class="inline-flex items-center">
+        <input type="radio" name="${r.name}" value="${r.value}" class="mr-2" />${r.label}
+      </label>`
+    ).join('');
+    // Reselect if previously in use
+    if (checkedName === 'lossPayeeSame' && checkedVal) {
+      loanFieldOptions.querySelector(`input[value="${checkedVal}"]`).checked = true;
+    }
+  } else {
+    loanFieldLabel.innerHTML = config.loanDefaultText;
+    loanFieldOptions.innerHTML = config.radios.loan.map(r =>
+      `<label class="inline-flex items-center">
+        <input type="radio" name="${r.name}" value="${r.value}" class="mr-2" />${r.label}
+      </label>`
+    ).join('');
+    if (checkedName === '00NU7000007Axvd' && checkedVal) {
+      loanFieldOptions.querySelector(`input[value="${checkedVal}"]`).checked = true;
     }
   }
+}
 
-  function showLossPayeeSection(show) {
-    lossPayeeSection.style.display = show ? "block" : "none";
+function updateAddressFields() {
+  const leaseVal = document.querySelector('input[name="00NU7000007AxFi"]:checked')?.value;
+
+  if (leaseVal === "Y") {
+    renderSecondQuestion('lossPayeeSame');
+    const lpsRadios = loanFieldOptions.querySelectorAll('input[name="lossPayeeSame"]');
+    let showLoss = "";
+    lpsRadios.forEach(r => {
+      r.addEventListener("change", () => showLossPayeeSection(r.value === "Y"));
+      if (r.checked) showLoss = r.value;
+    });
+    showLossPayeeSection(showLoss === "Y");
+  } else {
+    renderSecondQuestion('loan');
+    const loanRadios = loanFieldOptions.querySelectorAll('input[name="00NU7000007Axvd"]');
+    let showLoss = "";
+    loanRadios.forEach(r => {
+      r.addEventListener("change", () => showLossPayeeSection(r.value === "Y"));
+      if (r.checked) showLoss = r.value;
+    });
+    showLossPayeeSection(showLoss === "Y");
   }
+}
 
-  // Listeners for address fields
-  leaseRadios.forEach(radio =>
-    radio.addEventListener("change", () => {
-      // Clear radios in second question on lease change
-      Array.from(loanFieldOptions.querySelectorAll('input')).forEach(r => r.checked = false);
-      updateAddressFields();
-    })
-  );
+function showLossPayeeSection(show) {
+  lossPayeeSection.style.display = show ? "block" : "none";
+}
 
-  loanFieldOptions.addEventListener("change", updateAddressFields);
+// Listeners for main toggle and options
+leaseRadios.forEach(radio =>
+  radio.addEventListener("change", () => {
+    // Clear radios in second question on lease change
+    updateAddressFields();
+  })
+);
+// Delegate dynamic radio group events
+loanFieldOptions.addEventListener("change", updateAddressFields);
 
-  // Initial setup state
-  updateAddressFields();
+// Initial setup
+updateAddressFields();
 
-  // -------- Validation & Dialog Logic (Unchanged) -------- //
-  const requiredFields = [
-    { id: "email", label: "Email", type: "email" },
-    { radioGroupName: "00NU7000006IOzh", label: "Is this a quote or a change request?" },
-    { id: "00NU7000005zuX3", label: "Policy Number" },
-    { id: "00NU7000005zuLl", label: "Effective Date (MM/DD/YYYY)", type: "date" },
-    { id: "00NU7000006Knh3", label: "VIN Number of New Vehicle" },
-    { id: "00NU7000007Aop9", label: "Purchase Date", type: "date" },
-    { id: "00NU7000006N0iD", label: "Vehicle Use" },
-    { id: "00NU7000006N0zx", label: "Annual Miles" },
-    { id: "00NU7000007ALC1", label: "Other than Collision" },
-    { id: "00NU700000618cn", label: "Collision" },
-    { id: "00NU7000007AORd", label: "Extended Transportation" },
-    { id: "00NU7000007ALrx", label: "Towing and Labor" },
-    { id: "00NU7000007AP9B", label: "Excess Electronic Equipment" },
-    { id: "00NU7000007APab", label: "Lease/Loan Guard" },
-    { id: "00NU7000007APfR", label: "Trip Interruption Coverage" },
-    { radioGroupName: "00NU7000007AxFi", label: "Is this vehicle leased?" },
-    { radioGroupName: "00NU7000007Axvd", label: "Is there a Loan for this vehicle?" },
-    { radioGroupName: "lossPayeeSame", label: "Do the Loss Payee and the Lessor have the same name and address?" },
-    { id: "00NU7000006YQuN", label: "Loss Payee Name" },
-    { id: "00NU7000007AyLR", label: "Loss Payee Mailing Address" },
-    { id: "00NU7000005zvUj", label: "Loss Payee City" },
-    { id: "00NU7000005zvWL", label: "Loss Payee State" },
-    { id: "00NU7000005zw7R", label: "Loss Payee Zip Code" }
-  ];
 
-  function validateFields() {
-    const missing = [];
+    // -------- Validation & Dialog Logic (Unchanged) -------- //
+    const requiredFields = [
+      { id: "email", label: "Email", type: "email" },
+      { radioGroupName: "00NU7000006IOzh", label: "Is this a quote or a change request?" },
+      { id: "00NU7000005zuX3", label: "Policy Number" },
+      { id: "00NU7000005zuLl", label: "Effective Date (MM/DD/YYYY)", type: "date" },
+      { id: "00NU7000006Knh3", label: "VIN Number of New Vehicle" },
+      { id: "00NU7000007Aop9", label: "Purchase Date", type: "date" },
+      { id: "00NU7000006N0iD", label: "Vehicle Use" },
+      { id: "00NU7000006N0zx", label: "Annual Miles" },
+      { id: "00NU7000007ALC1", label: "Other than Collision" },
+      { id: "00NU700000618cn", label: "Collision" },
+      { id: "00NU7000007AORd", label: "Extended Transportation" },
+      { id: "00NU7000007ALrx", label: "Towing and Labor" },
+      { id: "00NU7000007AP9B", label: "Excess Electronic Equipment" },
+      { id: "00NU7000007APab", label: "Lease/Loan Guard" },
+      { id: "00NU7000007APfR", label: "Trip Interruption Coverage" },
+      { radioGroupName: "00NU7000007AxFi", label: "Is this vehicle leased?" },
+      { radioGroupName: "00NU7000007Axvd", label: "Is there a Loan for this vehicle?" },
+      { radioGroupName: "lossPayeeSame", label: "Do the Loss Payee and the Lessor have the same name and address?" },
+      { id: "00NU7000006YQuN", label: "Loss Payee Name" },
+      { id: "00NU7000007AyLR", label: "Loss Payee Mailing Address" },
+      { id: "00NU7000005zvUj", label: "Loss Payee City" },
+      { id: "00NU7000005zvWL", label: "Loss Payee State" },
+      { id: "00NU7000005zw7R", label: "Loss Payee Zip Code" }
+    ];
 
-    requiredFields.forEach((field) => {
-      if (field.radioGroupName) {
-        let radios;
-        if (field.radioGroupName === 'lossPayeeSame') {
-          radios = loanFieldOptions.querySelectorAll('input[name="lossPayeeSame"]');
-        } else {
-          radios = document.querySelectorAll(`input[name="${field.radioGroupName}"]`);
+    function validateFields() {
+      const missing = [];
+
+      requiredFields.forEach((field) => {
+        if (field.radioGroupName) {
+          let radios;
+          if (field.radioGroupName === 'lossPayeeSame') {
+            radios = loanFieldOptions.querySelectorAll('input[name="lossPayeeSame"]');
+          } else {
+            radios = document.querySelectorAll(`input[name="${field.radioGroupName}"]`);
+          }
+          if (!radios.length) return;
+          const checked = [...radios].some((r) => r.checked);
+          if (!checked) missing.push(field.label);
+          return;
         }
-        if (!radios.length) return;
-        const checked = [...radios].some((r) => r.checked);
-        if (!checked) missing.push(field.label);
-        return;
-      }
-      const el = document.getElementById(field.id);
-      const lossFields = [
-        "00NU7000006YQuN","00NU7000007AyLR","00NU7000005zvUj",
-        "00NU7000005zvWL","00NU7000005zw7R"
-      ];
-      if (lossFields.includes(field.id) && lossPayeeSection.style.display === "none") return;
-      if (field.type === "email") {
-        if (!el.value.trim() || !el.checkValidity()) missing.push(field.label);
-      } else if (field.type === "date") {
-        const val = el.value.trim();
-        const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/20[2-9]\d$/;
-        if (!val || !dateRegex.test(val)) missing.push(field.label);
+        const el = document.getElementById(field.id);
+        const lossFields = [
+          "00NU7000006YQuN","00NU7000007AyLR","00NU7000005zvUj",
+          "00NU7000005zvWL","00NU7000005zw7R"
+        ];
+        if (lossFields.includes(field.id) && lossPayeeSection.style.display === "none") return;
+        if (field.type === "email") {
+          if (!el.value.trim() || !el.checkValidity()) missing.push(field.label);
+        } else if (field.type === "date") {
+          const val = el.value.trim();
+          const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/20[2-9]\d$/;
+          if (!val || !dateRegex.test(val)) missing.push(field.label);
+        } else {
+          if (!el || !el.value.trim()) missing.push(field.label);
+        }
+      });
+      return missing;
+    }
+
+    const form = document.getElementById("mainForm");
+    const reviewBtn = document.getElementById("reviewBtn");
+    const dialog = document.getElementById("dialog");
+    const dialogTitle = document.getElementById("dialogTitle");
+    const missingFieldsList = document.getElementById("missingFieldsList");
+    const proceedBtn = document.getElementById("proceedBtn");
+    const editBtn = document.getElementById("editBtn");
+
+    form.addEventListener("submit", (e) => e.preventDefault());
+
+    reviewBtn.addEventListener("click", () => {
+      const missing = validateFields();
+      if (missing.length) {
+        dialogTitle.textContent = "Below Mandatory Fields are missing and the Team will contact you shortly.";
+        missingFieldsList.innerHTML = missing.map((f) => `<li>${f}</li>`).join("");
       } else {
-        if (!el || !el.value.trim()) missing.push(field.label);
+        dialogTitle.textContent = "All mandatory fields are completed. Ready to submit your request?";
+        missingFieldsList.innerHTML = "";
+      }
+      dialog.classList.remove("hidden");
+    });
+
+    editBtn.addEventListener("click", () => {
+      dialog.classList.add("hidden");
+    });
+
+    proceedBtn.addEventListener("click", () => {
+      dialog.classList.add("hidden");
+      form.submit();
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === dialog) {
+        dialog.classList.add("hidden");
       }
     });
-    return missing;
-  }
 
-  const form = document.getElementById("mainForm");
-  const reviewBtn = document.getElementById("reviewBtn");
-  const dialog = document.getElementById("dialog");
-  const dialogTitle = document.getElementById("dialogTitle");
-  const missingFieldsList = document.getElementById("missingFieldsList");
-  const proceedBtn = document.getElementById("proceedBtn");
-  const editBtn = document.getElementById("editBtn");
-
-  form.addEventListener("submit", (e) => e.preventDefault());
-
-  reviewBtn.addEventListener("click", () => {
-    const missing = validateFields();
-    if (missing.length) {
-      dialogTitle.textContent = "Below Mandatory Fields are missing and the Team will contact you shortly.";
-      missingFieldsList.innerHTML = missing.map((f) => `<li>${f}</li>`).join("");
-    } else {
-      dialogTitle.textContent = "All mandatory fields are completed. Ready to submit your request?";
-      missingFieldsList.innerHTML = "";
-    }
-    dialog.classList.remove("hidden");
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !dialog.classList.contains("hidden")) {
+        dialog.classList.add("hidden");
+      }
+    });
   });
+</script>
 
-  editBtn.addEventListener("click", () => {
-    dialog.classList.add("hidden");
-  });
-
-  proceedBtn.addEventListener("click", () => {
-    dialog.classList.add("hidden");
-    form.submit();
-  });
-
-  window.addEventListener("click", (e) => {
-    if (e.target === dialog) {
-      dialog.classList.add("hidden");
-    }
-  });
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !dialog.classList.contains("hidden")) {
-      dialog.classList.add("hidden");
-    }
-  });
-});
-
-    </script>
   </body>
 </html>
